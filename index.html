@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CineVault – Movie Library</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark">
+
+<header class="navbar">
+    <div class="brand">CineVault</div>
+
+    <div class="controls">
+        <input type="text" id="search" placeholder="Search movies">
+        <select id="sort">
+            <option value="default">Sort</option>
+            <option value="high">Rating ↑</option>
+            <option value="low">Rating ↓</option>
+        </select>
+        <select id="theme">
+            <option value="dark">Dark</option>
+            <option value="light">Light</option>
+            <option value="neon">Neon</option>
+        </select>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>Your Movie Library</h1>
+        <p>Discover • Track • Enjoy</p>
+    </div>
+</section>
+
+<section class="section">
+    <h2>Continue Watching</h2>
+    <div class="continue-box" id="continue-card">Nothing yet</div>
+</section>
+
+<section class="section">
+    <h2>Movies</h2>
+
+    <div class="movie-grid" id="movies">
+
+        <div class="movie-card" data-title="The Dark Knight" data-rating="9.0" data-mood="intense">
+            <div class="poster">
+                <img src="images/thedark.jpg">
+            </div>
+            <div class="details">
+                <h3>The Dark Knight</h3>
+                <span>Rating 9.0</span>
+                <button class="watch">Add to Watchlist</button>
+            </div>
+        </div>
+
+        <div class="movie-card" data-title="Inception" data-rating="8.8" data-mood="mind">
+            <div class="poster">
+                <img src="images/inception.jpg">
+            </div>
+            <div class="details">
+                <h3>Inception</h3>
+                <span>Rating 8.8</span>
+                <button class="watch">Add to Watchlist</button>
+            </div>
+        </div>
+
+        <div class="movie-card" data-title="Interstellar" data-rating="8.6" data-mood="calm">
+            <div class="poster">
+                <img src="images/interstellar.jpg">
+            </div>
+            <div class="details">
+                <h3>Interstellar</h3>
+                <span>Rating 8.6</span>
+                <button class="watch">Add to Watchlist</button>
+            </div>
+        </div>
+
+        <div class="movie-card" data-title="Avengers" data-rating="8.0" data-mood="intense">
+            <div class="poster">
+                <img src="images/avengers.jpg">
+            </div>
+            <div class="details">
+                <h3>Avengers</h3>
+                <span>Rating 8.0</span>
+                <button class="watch">Add to Watchlist</button>
+            </div>
+        </div>
+
+        <div class="movie-card" data-title="Dune" data-rating="8.2" data-mood="mind">
+            <div class="poster">
+                <img src="images/dune.jpg">
+            </div>
+            <div class="details">
+                <h3>Dune</h3>
+                <span>Rating 8.2</span>
+                <button class="watch">Add to Watchlist</button>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="section">
+    <h2>Your Taste Profile</h2>
+    <p id="taste-text">Add movies to your watchlist to see insights.</p>
+</section>
+
+<section class="section">
+    <h2>Watchlist</h2>
+    <ul class="watchlist" id="list"></ul>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
