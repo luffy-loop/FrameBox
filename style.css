@@ -90,7 +90,7 @@ body.neon {
     background: #161b29;
     border-radius: 16px;
     overflow: hidden;
-    transition: 0.3s;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .movie-card:hover {
