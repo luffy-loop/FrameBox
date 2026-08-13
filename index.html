@@ -1,115 +1,634 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <title>CineVault – Movie Library</title>
-    <link rel="stylesheet" href="style.css">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="FrameBox — a cinematic movie discovery experience built around your taste, mood and curiosity.">
+
+    <title>FrameBox — Your Cinema</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css">
+
 </head>
-<body class="dark">
 
-<header class="navbar">
-    <div class="brand">CineVault</div>
 
-    <div class="controls">
-        <input type="text" id="search" placeholder="Search movies">
-        <select id="sort">
-            <option value="default">Sort</option>
-            <option value="high">Rating ↑</option>
-            <option value="low">Rating ↓</option>
-        </select>
-        <select id="theme">
-            <option value="dark">Dark</option>
-            <option value="light">Light</option>
-            <option value="neon">Neon</option>
-        </select>
+<body>
+
+
+    <!-- =====================================
+         NAVIGATION
+         ===================================== -->
+
+    <header class="navbar">
+
+        <nav>
+
+            <a
+                href="#home"
+                class="logo">
+
+                FrameBox
+
+            </a>
+
+
+            <ul class="nav-links">
+
+                <li>
+                    <a
+                        href="#home"
+                        class="active">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#discover">
+                        Discover
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#watchlist">
+                        Watchlist
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#cinema">
+                        Your Cinema
+                    </a>
+                </li>
+
+            </ul>
+
+
+            <a
+                href="#discover"
+                class="btn btn-secondary">
+
+                Explore
+
+            </a>
+
+        </nav>
+
+    </header>
+
+
+
+    <main>
+
+
+        <!-- =====================================
+             HERO
+             ===================================== -->
+
+        <section
+            id="home"
+            class="hero">
+
+            <div class="hero-content">
+
+                <span class="section-label">
+                    YOUR PERSONAL CINEMA
+                </span>
+
+
+                <h1>
+
+                    Your next
+                    <span>favorite film</span>
+                    is waiting.
+
+                </h1>
+
+
+                <p>
+
+                    Discover films around your
+                    taste, mood and curiosity.
+                    Build your watchlist and find
+                    something worth watching tonight.
+
+                </p>
+
+
+                <div class="hero-actions">
+
+                    <a
+                        href="#discover"
+                        class="btn btn-primary">
+
+                        Explore films
+                        <span>↗</span>
+
+                    </a>
+
+
+                    <a
+                        href="#watchlist"
+                        class="btn btn-secondary">
+
+                        My watchlist
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             DISCOVERY
+             ===================================== -->
+
+        <section
+            id="discover"
+            class="section">
+
+            <div class="container">
+
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <span class="section-label">
+                            01 / DISCOVER
+                        </span>
+
+                        <h2>
+                            Find your
+                            <em>next</em>
+                            film.
+                        </h2>
+
+                    </div>
+
+
+                    <p>
+
+                        Search your collection,
+                        explore moods and discover
+                        films worth remembering.
+
+                    </p>
+
+                </div>
+
+
+
+                <!-- SEARCH -->
+
+                <div class="search-box">
+
+                    <input
+                        type="search"
+                        id="searchInput"
+                        placeholder="Search movies, genres, moods..."
+                        autocomplete="off">
+
+                </div>
+
+
+
+                <!-- FILTERS -->
+
+                <div class="filters">
+
+                    <button
+                        class="filter-btn active"
+                        data-filter="all">
+
+                        All
+
+                    </button>
+
+                    <button
+                        class="filter-btn"
+                        data-filter="sci-fi">
+
+                        Sci-Fi
+
+                    </button>
+
+                    <button
+                        class="filter-btn"
+                        data-filter="thriller">
+
+                        Thriller
+
+                    </button>
+
+                    <button
+                        class="filter-btn"
+                        data-filter="action">
+
+                        Action
+
+                    </button>
+
+                    <button
+                        class="filter-btn"
+                        data-filter="drama">
+
+                        Drama
+
+                    </button>
+
+                    <button
+                        class="filter-btn"
+                        data-filter="mind">
+
+                        Mind-Bending
+
+                    </button>
+
+                </div>
+
+
+
+                <!-- MOVIES -->
+
+                <div
+                    class="movie-grid"
+                    id="movieGrid">
+
+                    <!-- JavaScript renders movies here -->
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             FEATURED / TONIGHT'S PICK
+             ===================================== -->
+
+        <section class="section">
+
+            <div class="container">
+
+                <div
+                    class="featured"
+                    id="featuredMovie">
+
+                    <div class="featured-content">
+
+                        <span class="section-label">
+                            TONIGHT'S PICK
+                        </span>
+
+                        <h2 id="featuredTitle">
+                            Interstellar
+                        </h2>
+
+                        <p id="featuredDescription">
+
+                            A journey beyond the stars,
+                            where time, love and survival
+                            collide.
+
+                        </p>
+
+
+                        <div class="hero-actions">
+
+                            <button
+                                class="btn btn-primary"
+                                id="featuredWatch">
+
+                                Explore film
+                                <span>↗</span>
+
+                            </button>
+
+                            <button
+                                class="btn btn-secondary"
+                                id="randomMovie">
+
+                                Try another
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             WATCHLIST
+             ===================================== -->
+
+        <section
+            id="watchlist"
+            class="section">
+
+            <div class="container">
+
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <span class="section-label">
+                            02 / WATCHLIST
+                        </span>
+
+                        <h2>
+                            Films worth
+                            <em>saving.</em>
+                        </h2>
+
+                    </div>
+
+
+                    <p id="watchlistCount">
+                        0 films saved
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="watchlist-grid"
+                    id="watchlistGrid">
+
+                    <!-- JavaScript renders watchlist -->
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             YOUR CINEMA
+             ===================================== -->
+
+        <section
+            id="cinema"
+            class="section">
+
+            <div class="container">
+
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <span class="section-label">
+                            03 / YOUR CINEMA
+                        </span>
+
+                        <h2>
+                            Your taste.
+                            <em>Your films.</em>
+                        </h2>
+
+                    </div>
+
+
+                    <p>
+
+                        FrameBox learns from the
+                        films you save and explore.
+
+                    </p>
+
+                </div>
+
+
+
+                <div class="profile-panel">
+
+
+                    <div>
+
+                        <span class="section-label">
+                            CINEMA PROFILE
+                        </span>
+
+
+                        <h3
+                            class="profile-title"
+                            id="profileTitle">
+
+                            The
+                            <span>Explorer.</span>
+
+                        </h3>
+
+
+                        <p
+                            id="profileDescription"
+                            style="margin-top:24px;">
+
+                            You seem drawn to stories
+                            that create questions,
+                            atmosphere and worlds worth
+                            getting lost in.
+
+                        </p>
+
+                    </div>
+
+
+
+                    <div
+                        class="taste-bars"
+                        id="tasteBars">
+
+                        <div class="taste-row">
+
+                            <div class="taste-label">
+
+                                <span>
+                                    SCI-FI
+                                </span>
+
+                                <span>
+                                    42%
+                                </span>
+
+                            </div>
+
+                            <div class="taste-bar">
+
+                                <span
+                                    style="width:42%">
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="taste-row">
+
+                            <div class="taste-label">
+
+                                <span>
+                                    THRILLER
+                                </span>
+
+                                <span>
+                                    28%
+                                </span>
+
+                            </div>
+
+                            <div class="taste-bar">
+
+                                <span
+                                    style="width:28%">
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="taste-row">
+
+                            <div class="taste-label">
+
+                                <span>
+                                    DRAMA
+                                </span>
+
+                                <span>
+                                    18%
+                                </span>
+
+                            </div>
+
+                            <div class="taste-bar">
+
+                                <span
+                                    style="width:18%">
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="taste-row">
+
+                            <div class="taste-label">
+
+                                <span>
+                                    ACTION
+                                </span>
+
+                                <span>
+                                    12%
+                                </span>
+
+                            </div>
+
+                            <div class="taste-bar">
+
+                                <span
+                                    style="width:12%">
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+    </main>
+
+
+
+    <!-- =====================================
+         MOVIE DETAIL MODAL
+         ===================================== -->
+
+    <div
+        class="modal"
+        id="movieModal"
+        aria-hidden="true">
+
+        <div class="modal-content">
+
+            <button
+                class="modal-close"
+                id="modalClose"
+                aria-label="Close movie details">
+
+                ×
+
+            </button>
+
+
+            <div id="modalBody">
+
+                <!-- JavaScript renders details -->
+
+            </div>
+
+        </div>
+
     </div>
-</header>
 
-<section class="hero">
-    <div class="hero-content">
-        <h1>Your Movie Library</h1>
-        <p>Discover • Track • Enjoy</p>
-    </div>
-</section>
 
-<section class="section">
-    <h2>Continue Watching</h2>
-    <div class="continue-box" id="continue-card">Nothing yet</div>
-</section>
 
-<section class="section">
-    <h2>Movies</h2>
+    <!-- =====================================
+         FOOTER
+         ===================================== -->
 
-    <div class="movie-grid" id="movies">
+    <footer>
 
-        <div class="movie-card" data-title="The Dark Knight" data-rating="9.0" data-mood="intense">
-            <div class="poster">
-                <img src="images/thedark.jpg">
-            </div>
-            <div class="details">
-                <h3>The Dark Knight</h3>
-                <span>Rating 9.0</span>
-                <button class="watch">Add to Watchlist</button>
-            </div>
+        <div class="container">
+
+            FRAMEBOX · YOUR PERSONAL CINEMA
+
         </div>
 
-        <div class="movie-card" data-title="Inception" data-rating="8.8" data-mood="mind">
-            <div class="poster">
-                <img src="images/inception.jpg">
-            </div>
-            <div class="details">
-                <h3>Inception</h3>
-                <span>Rating 8.8</span>
-                <button class="watch">Add to Watchlist</button>
-            </div>
-        </div>
+    </footer>
 
-        <div class="movie-card" data-title="Interstellar" data-rating="8.6" data-mood="calm">
-            <div class="poster">
-                <img src="images/interstellar.jpg">
-            </div>
-            <div class="details">
-                <h3>Interstellar</h3>
-                <span>Rating 8.6</span>
-                <button class="watch">Add to Watchlist</button>
-            </div>
-        </div>
 
-        <div class="movie-card" data-title="Avengers" data-rating="8.0" data-mood="intense">
-            <div class="poster">
-                <img src="images/avengers.jpg">
-            </div>
-            <div class="details">
-                <h3>Avengers</h3>
-                <span>Rating 8.0</span>
-                <button class="watch">Add to Watchlist</button>
-            </div>
-        </div>
 
-        <div class="movie-card" data-title="Dune" data-rating="8.2" data-mood="mind">
-            <div class="poster">
-                <img src="images/dune.jpg">
-            </div>
-            <div class="details">
-                <h3>Dune</h3>
-                <span>Rating 8.2</span>
-                <button class="watch">Add to Watchlist</button>
-            </div>
-        </div>
+    <script src="script.js"></script>
 
-    </div>
-</section>
-
-<section class="section">
-    <h2>Your Taste Profile</h2>
-    <p id="taste-text">Add movies to your watchlist to see insights.</p>
-</section>
-
-<section class="section">
-    <h2>Watchlist</h2>
-    <ul class="watchlist" id="list"></ul>
-</section>
-
-<script src="script.js"></script>
 </body>
+
 </html>
