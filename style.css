@@ -1923,3 +1923,100 @@ footer {
     }
 
 }
+
+/* =========================================
+   WATCHLIST EDITOR
+   ========================================= */
+
+.watchlist-controls {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+.watchlist-controls p {
+    margin: 0;
+}
+
+.watchlist-editor {
+    margin-bottom: 24px;
+    padding: 18px 20px;
+    background: rgba(255,255,255,0.035);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    animation: cardAppear .35s ease both;
+}
+
+.editor-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    color: var(--text-dim);
+    font-size: .68rem;
+    font-weight: 700;
+    letter-spacing: .15em;
+}
+
+.editor-top span:last-child {
+    color: var(--gold);
+}
+
+.editor-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.watchlist-grid.editing .movie-card {
+    cursor: pointer;
+    position: relative;
+}
+
+.watchlist-grid.editing .movie-card::before {
+    content: "";
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    z-index: 10;
+    width: 22px;
+    height: 22px;
+    border: 1px solid rgba(255,255,255,.5);
+    border-radius: 6px;
+    background: rgba(0,0,0,.65);
+}
+
+.watchlist-grid.editing
+.movie-card.selected::before {
+    content: "✓";
+    display: grid;
+    place-items: center;
+    color: white;
+    background: var(--accent);
+    border-color: var(--accent);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.watchlist-grid.editing
+.movie-card.selected {
+    border-color: var(--accent);
+    transform: translateY(-5px);
+    box-shadow:
+        0 20px 55px
+        rgba(229,72,50,.18);
+}
+
+.watchlist-grid.editing .movie-action {
+    display: none;
+}
+
+@media (max-width: 600px) {
+
+    .watchlist-controls {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+}

@@ -538,6 +538,223 @@ function renderWatchlist() {
 
 }
 
+/* =========================================
+   WATCHLIST EDITOR
+   ========================================= */
+
+const editWatchlistBtn =
+    document.getElementById(
+        "editWatchlistBtn"
+    );
+
+const watchlistEditor =
+    document.getElementById(
+        "watchlistEditor"
+    );
+
+const removeSelectedBtn =
+    document.getElementById(
+        "removeSelectedBtn"
+    );
+
+const clearWatchlistBtn =
+    document.getElementById(
+        "clearWatchlistBtn"
+    );
+
+const doneEditingBtn =
+    document.getElementById(
+        "doneEditingBtn"
+    );
+
+const selectedCount =
+    document.getElementById(
+        "selectedCount"
+    );
+
+
+function updateSelectedCount() {
+
+    if (!watchlistGrid) return;
+
+    const selected =
+        watchlistGrid.querySelectorAll(
+            ".movie-card.selected"
+        );
+
+    if (selectedCount) {
+
+        selectedCount.textContent =
+            `${selected.length} selected`;
+
+    }
+
+}
+
+
+function enterWatchlistEditMode() {
+
+    watchlistGrid.classList.add(
+        "editing"
+    );
+
+    watchlistEditor.hidden = false;
+
+    editWatchlistBtn.textContent =
+        "Exit Editing";
+
+    updateSelectedCount();
+
+}
+
+
+function exitWatchlistEditMode() {
+
+    watchlistGrid.classList.remove(
+        "editing"
+    );
+
+    watchlistGrid
+        .querySelectorAll(
+            ".movie-card.selected"
+        )
+        .forEach(card => {
+
+            card.classList.remove(
+                "selected"
+            );
+
+        });
+
+    watchlistEditor.hidden = true;
+
+    editWatchlistBtn.textContent =
+        "Edit Watchlist";
+
+    updateSelectedCount();
+
+}
+
+
+if (editWatchlistBtn) {
+
+    editWatchlistBtn.addEventListener(
+        "click",
+        () => {
+
+            if (
+                watchlistGrid.classList.contains(
+                    "editing"
+                )
+            ) {
+
+                exitWatchlistEditMode();
+
+            } else {
+
+                enterWatchlistEditMode();
+
+            }
+
+        }
+    );
+
+}
+
+
+if (doneEditingBtn) {
+
+    doneEditingBtn.addEventListener(
+        "click",
+        exitWatchlistEditMode
+    );
+
+}
+
+
+if (removeSelectedBtn) {
+
+    removeSelectedBtn.addEventListener(
+        "click",
+        () => {
+
+            const selected =
+                watchlistGrid.querySelectorAll(
+                    ".movie-card.selected"
+                );
+
+            const selectedIds =
+                [...selected].map(
+                    card =>
+                        card.dataset.watchlistId
+                );
+
+            if (
+                selectedIds.length === 0
+            ) {
+
+                return;
+
+            }
+
+            watchlist =
+                watchlist.filter(
+                    movie =>
+                        !selectedIds.includes(
+                            movie.id
+                        )
+                );
+
+            saveWatchlist();
+
+            renderWatchlist();
+
+            renderMovies();
+
+            updateTasteProfile();
+
+        }
+    );
+
+}
+
+
+if (clearWatchlistBtn) {
+
+    clearWatchlistBtn.addEventListener(
+        "click",
+        () => {
+
+            if (!watchlist.length) {
+                return;
+            }
+
+            const confirmed =
+                confirm(
+                    "Clear your entire watchlist?"
+                );
+
+            if (!confirmed) {
+                return;
+            }
+
+            watchlist = [];
+
+            saveWatchlist();
+
+            renderWatchlist();
+
+            renderMovies();
+
+            updateTasteProfile();
+
+            exitWatchlistEditMode();
+
+        }
+    );
+
+}
+
 
 /* =========================================
    MOVIE MODAL
@@ -869,11 +1086,44 @@ function updateTasteProfile() {
 
     watchlist.forEach(movie => {
 
-        moodCount[movie.mood] =
-            (moodCount[movie.mood] || 0) +
-            1;
+    const card =
+        createMovieCard(movie);
 
-    });
+    card.dataset.watchlistId =
+        movie.id;
+
+    card.addEventListener(
+        "click",
+        event => {
+
+            if (
+                !watchlistGrid.classList.contains(
+                    "editing"
+                )
+            ) {
+                return;
+            }
+
+            if (
+                event.target.closest(
+                    ".movie-action"
+                )
+            ) {
+                return;
+            }
+
+            card.classList.toggle(
+                "selected"
+            );
+
+            updateSelectedCount();
+
+        }
+    );
+
+    watchlistGrid.appendChild(card);
+
+});
 
 
     const sortedMoods =

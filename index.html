@@ -395,15 +395,73 @@
 
     <div class="watchlist-controls">
 
-        <p id="watchlistCount">
-            0 films saved
-        </p>
+        <div class="watchlist-controls">
+
+    <p id="watchlistCount">
+        0 films saved
+    </p>
+
+    <button
+        class="btn btn-secondary"
+        id="editWatchlistBtn">
+
+        Edit Watchlist
+
+    </button>
+
+</div>
 
         <button
             class="btn btn-secondary"
             id="editWatchlistBtn">
 
             Edit Watchlist
+
+        </button>
+
+    </div>
+
+</div>
+<div
+    class="watchlist-editor"
+    id="watchlistEditor"
+    hidden>
+
+    <div class="editor-top">
+
+        <span>
+            WATCHLIST EDITOR
+        </span>
+
+        <span id="selectedCount">
+            0 selected
+        </span>
+
+    </div>
+
+    <div class="editor-actions">
+
+        <button
+            class="btn btn-secondary"
+            id="removeSelectedBtn">
+
+            Remove Selected
+
+        </button>
+
+        <button
+            class="btn btn-secondary"
+            id="clearWatchlistBtn">
+
+            Clear All
+
+        </button>
+
+        <button
+            class="btn btn-primary"
+            id="doneEditingBtn">
+
+            Done
 
         </button>
 
