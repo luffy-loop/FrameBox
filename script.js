@@ -138,7 +138,7 @@ const tasteBars =
 
 let watchlist =
     JSON.parse(
-        localStorage.getItem("framebox-watchlist")
+        localStorage.getItem("watchlist")
     ) || [];
 
 let lastMovie =
@@ -161,7 +161,7 @@ let currentFeatured =
 function saveWatchlist() {
 
     localStorage.setItem(
-        "framebox-watchlist",
+        "watchlist",
         JSON.stringify(watchlist)
     );
 
@@ -311,10 +311,26 @@ function renderMovies() {
                     .includes(search);
 
 
-            const matchesFilter =
-                activeFilter === "all" ||
-                movie.category ===
-                    activeFilter;
+             let matchesFilter = true;
+
+if (activeFilter === "all") {
+
+    matchesFilter = true;
+
+} else if (activeFilter === "rating-9") {
+
+    matchesFilter = movie.rating >= 9;
+
+} else if (activeFilter === "rating-8") {
+
+    matchesFilter = movie.rating >= 8;
+
+} else {
+
+    matchesFilter =
+        movie.category === activeFilter;
+
+}
 
 
             return (
@@ -752,7 +768,15 @@ function renderFeatured(movie) {
 
     currentFeatured =
         movie;
+     const featured =
+    document.getElementById("featuredMovie");
 
+if (featured) {
+
+    featured.style.backgroundImage =
+        `url("${movie.image}")`;
+
+}
 
     if (featuredTitle) {
 

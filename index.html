@@ -73,13 +73,29 @@
             </ul>
 
 
-            <a
-                href="#discover"
-                class="btn btn-secondary">
+ <div class="nav-actions">
 
-                Explore
+    <button
+        class="theme-toggle"
+        id="themeToggle"
+        aria-label="Toggle theme">
 
-            </a>
+        <span id="themeIcon">
+            ◐
+        </span>
+
+    </button>
+
+
+    <a
+        href="#discover"
+        class="btn btn-secondary">
+
+        Explore
+
+    </a>
+
+</div>
 
         </nav>
 
@@ -204,61 +220,72 @@
 
                 </div>
 
+<div class="filter-heading">
 
+    <span>
+        FILTER COLLECTION
+    </span>
 
-                <!-- FILTERS -->
+    <span id="resultCount">
+        5 films
+    </span>
 
+</div>
                 <div class="filters">
 
-                    <button
-                        class="filter-btn active"
-                        data-filter="all">
+    <button
+        class="filter-btn active"
+        data-filter="all">
+        All Films
+    </button>
 
-                        All
+    <button
+        class="filter-btn"
+        data-filter="sci-fi">
+        Sci-Fi
+    </button>
 
-                    </button>
+    <button
+        class="filter-btn"
+        data-filter="thriller">
+        Thriller
+    </button>
 
-                    <button
-                        class="filter-btn"
-                        data-filter="sci-fi">
+    <button
+        class="filter-btn"
+        data-filter="action">
+        Action
+    </button>
 
-                        Sci-Fi
+    <button
+        class="filter-btn"
+        data-filter="drama">
+        Drama
+    </button>
 
-                    </button>
+    <button
+        class="filter-btn"
+        data-filter="mind">
+        Mind-Bending
+    </button>
 
-                    <button
-                        class="filter-btn"
-                        data-filter="thriller">
+    <button
+        class="filter-btn"
+        data-filter="rating-9">
+        9+ Rated
+    </button>
 
-                        Thriller
+    <button
+        class="filter-btn"
+        data-filter="rating-8">
+        8+ Rated
+    </button>
 
-                    </button>
+</div>
+                <!-- FILTERS -->
 
-                    <button
-                        class="filter-btn"
-                        data-filter="action">
-
-                        Action
-
-                    </button>
-
-                    <button
-                        class="filter-btn"
-                        data-filter="drama">
-
-                        Drama
-
-                    </button>
-
-                    <button
-                        class="filter-btn"
-                        data-filter="mind">
-
-                        Mind-Bending
-
-                    </button>
-
-                </div>
+                
+                 
 
 
 
@@ -351,29 +378,84 @@
             <div class="container">
 
 
-                <div class="section-heading">
+    <div class="section-heading">
 
-                    <div>
+    <div>
 
-                        <span class="section-label">
-                            02 / WATCHLIST
-                        </span>
+        <span class="section-label">
+            02 / WATCHLIST
+        </span>
 
-                        <h2>
-                            Films worth
-                            <em>saving.</em>
-                        </h2>
+        <h2>
+            Films worth
+            <em>saving.</em>
+        </h2>
 
-                    </div>
+    </div>
 
+    <div class="watchlist-controls">
 
-                    <p id="watchlistCount">
-                        0 films saved
-                    </p>
+        <p id="watchlistCount">
+            0 films saved
+        </p>
 
-                </div>
+        <button
+            class="btn btn-secondary"
+            id="editWatchlistBtn">
 
+            Edit Watchlist
 
+        </button>
+
+    </div>
+
+</div>
+<div
+    class="watchlist-editor"
+    id="watchlistEditor"
+    hidden>
+
+    <div class="editor-top">
+
+        <span>
+            WATCHLIST EDITOR
+        </span>
+
+        <span id="selectedCount">
+            0 selected
+        </span>
+
+    </div>
+
+    <div class="editor-actions">
+
+        <button
+            class="btn btn-secondary"
+            id="removeSelectedBtn">
+
+            Remove Selected
+
+        </button>
+
+        <button
+            class="btn btn-secondary"
+            id="clearWatchlistBtn">
+
+            Clear All
+
+        </button>
+
+        <button
+            class="btn btn-primary"
+            id="doneEditingBtn">
+
+            Done
+
+        </button>
+
+    </div>
+
+</div>
                 <div
                     class="watchlist-grid"
                     id="watchlistGrid">
